@@ -1,5 +1,7 @@
 import React, { FC } from "react";
 import { StyleSheet, View, Text, Button } from "react-native";
+import { useDispatch } from "react-redux";
+import { archive } from "../redux/StoriesSlice";
 
 export type IStoryProps = {
   title: string;
@@ -19,9 +21,11 @@ const Story: FC<IStoryProps> = ({
   objectID,
 }) => {
   console.log("title>>", title);
+  const dispatch = useDispatch();
 
   const onArchive = (objectID: number) => {
     console.log("onArchive() >> objectID>>", objectID);
+    dispatch(archive({ objectID }));
   };
 
   return (
@@ -31,7 +35,12 @@ const Story: FC<IStoryProps> = ({
       <Text style={styles.text}>{author}</Text>
       <Text style={styles.text}>{num_comments}</Text>
       <Text style={styles.text}>{points}</Text>
-      <Button title="archive" onPress={() => onArchive(objectID)} />
+      <Button
+        title="archive"
+        onPress={() => {
+          onArchive(objectID);
+        }}
+      />
     </View>
   );
 };
