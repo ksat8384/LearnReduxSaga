@@ -1,5 +1,5 @@
-import React, {FC} from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import React, { FC } from "react";
+import { StyleSheet, View, Text, Button } from "react-native";
 
 export type IStoryProps = {
   title: string;
@@ -18,7 +18,11 @@ const Story: FC<IStoryProps> = ({
   points,
   objectID,
 }) => {
-  console.log('title>>', title);
+  console.log("title>>", title);
+
+  const onArchive = (objectID: number) => {
+    console.log("onArchive() >> objectID>>", objectID);
+  };
 
   return (
     <View style={styles.container}>
@@ -27,6 +31,7 @@ const Story: FC<IStoryProps> = ({
       <Text style={styles.text}>{author}</Text>
       <Text style={styles.text}>{num_comments}</Text>
       <Text style={styles.text}>{points}</Text>
+      <Button title="archive" onPress={() => onArchive(objectID)} />
     </View>
   );
 };
@@ -38,12 +43,12 @@ const styles = StyleSheet.create({
     flex: 1,
     marginBottom: 5,
     padding: 20,
-    backgroundColor: 'orange',
+    backgroundColor: "orange",
   },
   text: {
-    color: 'white',
-    fontWeight: 'bold',
-      fontStyle: 'italic',
-    fontSize: 20
+    color: "white",
+    fontWeight: "bold",
+    fontStyle: "italic",
+    fontSize: 20,
   },
 });
