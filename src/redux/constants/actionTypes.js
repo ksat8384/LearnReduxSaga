@@ -1,0 +1,1 @@
+export const STORIES_FETCH = "STORIES_FETCH";
