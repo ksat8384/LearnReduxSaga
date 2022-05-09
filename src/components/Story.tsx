@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { StyleSheet, View, Text, Button } from "react-native";
 import { useDispatch } from "react-redux";
-import { archiveStory } from "../redux/ArchiveSlice";
+import { archiveStory } from "../redux/slices/ArchiveSlice";
 
 export type IStoryProps = {
   title: string;
