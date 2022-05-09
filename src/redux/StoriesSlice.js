@@ -23,14 +23,14 @@ const storiesSlice = createSlice({
   name: "stories",
   initialState: stories,
   reducers: {
-    archive(state, action) {
-      const stories = { state };
-      const { objectID } = action.payload;
-      console.log("objectID -->>", objectID);
-      //TODO archive implementation
-      return state;
-    },
+    // archive(state, action) {
+    //   const stories = { state };
+    //   const { objectID } = action.payload;
+    //   console.log("objectID -->>", objectID);
+    //   //TODO archive implementation
+    //   return state;
+    // },
   },
 });
-export const { archive } = storiesSlice.actions;
+// export const { archive } = storiesSlice.actions;
 export default storiesSlice.reducer;
